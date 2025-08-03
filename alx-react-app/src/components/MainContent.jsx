@@ -1,5 +1,5 @@
 
-jsx
+
 function MainContent() {
   return (
     <main>

@@ -1,4 +1,4 @@
-jsx
+
 function Footer() {
   return (
     <footer>
