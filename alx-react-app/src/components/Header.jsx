@@ -6,7 +6,7 @@ function Header() {
   );
 }
 
-export default Header;
+export { Header };
 
 
 MainContent.jsx
@@ -19,7 +19,7 @@ function MainContent() {
   );
 }
 
-export default MainContent;
+export { MainContent };
 
 
 Footer.jsx
