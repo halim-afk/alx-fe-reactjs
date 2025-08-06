@@ -1,3 +1,6 @@
+import React, { useContext } from 'react';
+import UserContext from '<./src/UserContext';  
+
 const UserProfile = (props) => {
   return (
     <div>
@@ -9,3 +12,15 @@ const UserProfile = (props) => {
 };
 
 export default UserProfile;
+ 
+function UserProfile() {
+  const userData = useContext(UserContext);
+
+  return (
+    <div>
+      <h1>{userData.name}</h1>
+      <p>{userData.bio}</p>
+    </div>
+  );
+}
+
