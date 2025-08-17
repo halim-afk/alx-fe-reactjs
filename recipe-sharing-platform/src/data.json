@@ -3,24 +3,20 @@
     "id": 1,
     "title": "Spaghetti Carbonara",
     "summary": "A classic Italian pasta dish with eggs, cheese, bacon, and black pepper.",
-    "image": "https://images.unsplash.com/photo-1621966144007-3532f1f00888?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-  },
-  {
-    "id": 2,
-    "title": "Chicken Tikka Masala",
-    "summary": "Chunks of grilled chicken cooked in a smooth, buttery & creamy tomato-based gravy.",
-    "image": "https://images.unsplash.com/photo-1626244795368-8742d1746f34?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-  },
-  {
-    "id": 3,
-    "title": "Classic Pancakes",
-    "summary": "Fluffy, golden pancakes perfect for breakfast, topped with butter and syrup.",
-    "image": "https://images.unsplash.com/photo-1616885370908-963d81b8e4e9?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-  },
-  {
-    "id": 4,
-    "title": "Beef Tacos",
-    "summary": "Delicious seasoned ground beef served in a hard or soft shell with fresh toppings.",
-    "image": "https://images.unsplash.com/photo-1599974516900-4497e743690d?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    "image": "https://images.unsplash.com/photo-1621966144007-3532f1f00888?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "ingredients": [
+      "1 lb spaghetti",
+      "4 large eggs",
+      "1 cup grated Pecorino Romano cheese",
+      "8 oz guanciale (or pancetta/bacon)",
+      "1 tsp black pepper"
+    ],
+    "instructions": [
+      "Cook spaghetti according to package directions.",
+      "While pasta cooks, cook guanciale in a skillet until crisp. Remove from skillet and set aside.",
+      "In a bowl, whisk eggs, cheese, and pepper.",
+      "Drain pasta and immediately add to the skillet with a little pasta water.",
+      "Remove skillet from heat, add egg mixture and guanciale, and toss quickly until a creamy sauce forms. Serve immediately."
+    ]
   }
 ]
