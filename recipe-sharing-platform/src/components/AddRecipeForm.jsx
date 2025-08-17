@@ -5,7 +5,7 @@ const AddRecipeForm = () => {
   const [formData, setFormData] = useState({
     title: '',
     ingredients: '',
-    instructions: '',
+    steps: '', // Updated from 'instructions' to 'steps'
     image: ''
   });
   const [errors, setErrors] = useState({});
@@ -23,7 +23,7 @@ const AddRecipeForm = () => {
     let newErrors = {};
     if (!formData.title) newErrors.title = "Recipe title is required.";
     if (!formData.ingredients) newErrors.ingredients = "Ingredients are required.";
-    if (!formData.instructions) newErrors.instructions = "Instructions are required.";
+    if (!formData.steps) newErrors.steps = "Steps are required."; // Updated for 'steps'
     if (!formData.image) newErrors.image = "Image URL is required.";
     return newErrors;
   };
@@ -34,14 +34,12 @@ const AddRecipeForm = () => {
     setErrors(validationErrors);
 
     if (Object.keys(validationErrors).length === 0) {
-      // Logic for handling form submission (e.g., sending data to an API)
       console.log('Form submitted successfully:', formData);
       setSubmitted(true);
-      // Reset form
       setFormData({
         title: '',
         ingredients: '',
-        instructions: '',
+        steps: '',
         image: ''
       });
     }
@@ -82,16 +80,16 @@ const AddRecipeForm = () => {
             {errors.ingredients && <p className="text-red-500 text-sm mt-1">{errors.ingredients}</p>}
           </div>
           <div className="mb-4">
-            <label htmlFor="instructions" className="block text-gray-700 font-semibold mb-2">Preparation Steps</label>
+            <label htmlFor="steps" className="block text-gray-700 font-semibold mb-2">Preparation Steps</label>
             <textarea
-              id="instructions"
-              name="instructions"
-              value={formData.instructions}
+              id="steps" // Updated from 'instructions' to 'steps'
+              name="steps"
+              value={formData.steps}
               onChange={handleChange}
               rows="6"
-              className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${errors.instructions ? 'border-red-500' : 'border-gray-300'}`}
+              className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${errors.steps ? 'border-red-500' : 'border-gray-300'}`}
             ></textarea>
-            {errors.instructions && <p className="text-red-500 text-sm mt-1">{errors.instructions}</p>}
+            {errors.steps && <p className="text-red-500 text-sm mt-1">{errors.steps}</p>}
           </div>
           <div className="mb-6">
             <label htmlFor="image" className="block text-gray-700 font-semibold mb-2">Image URL</label>
