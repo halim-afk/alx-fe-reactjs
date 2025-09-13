@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { fetchAdvancedUsers } from "../services/githubService";
+import { fetchUserData, fetchAdvancedUsers } from "../services/githubService";
 
 function Search() {
   const [username, setUsername] = useState("");
@@ -16,14 +16,24 @@ function Search() {
     setUsers([]);
 
     try {
-      const data = await fetchAdvancedUsers({ username, location, minRepos });
-      if (data.items.length === 0) {
+      let data;
+
+      // البحث البسيط إذا لم يوجد معايير متقدمة
+      if (username && !location && !minRepos) {
+        const user = await fetchUserData(username);
+        data = { items: [user] }; // تحويله لمصفوفة لتتوافق مع عرض النتائج
+      } else {
+        // البحث المتقدم
+        data = await fetchAdvancedUsers({ username, location, minRepos });
+      }
+
+      if (!data.items || data.items.length === 0) {
         setError("No users found with these criteria");
       } else {
         setUsers(data.items);
       }
     } catch (err) {
-      setError("Error fetching users");
+      setError("Looks like we can't find the user");
     } finally {
       setLoading(false);
     }
@@ -71,7 +81,7 @@ function Search() {
             <div>
               <h3 className="font-bold">{user.login}</h3>
               {user.location && <p>Location: {user.location}</p>}
-              <p>Repos: {user.public_repos}</p>
+              {user.public_repos !== undefined && <p>Repos: {user.public_repos}</p>}
               <a
                 href={user.html_url}
                 target="_blank"
