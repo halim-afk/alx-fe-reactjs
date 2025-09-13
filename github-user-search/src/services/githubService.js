@@ -1,18 +1,25 @@
 import axios from "axios";
 
-const API_URL = "https://api.github.com";
-
 const githubApi = axios.create({
-  baseURL: API_URL,
+  baseURL: "https://api.github.com",
   headers: {
     Authorization: `token ${import.meta.env.VITE_APP_GITHUB_API_KEY}`,
   },
 });
 
-export default githubApi;
-
+// جلب بيانات مستخدم واحد
 export async function fetchUserData(username) {
-  const API_URL = `https://api.github.com/users/${username}`;
-  const response = await axios.get(API_URL);
+  const response = await githubApi.get(`/users/${username}`);
   return response.data;
+}
+
+// البحث المتقدم عن المستخدمين
+export async function fetchAdvancedUsers({ username, location, minRepos }) {
+  let query = "";
+  if (username) query += `${username} in:login`;
+  if (location) query += ` location:${location}`;
+  if (minRepos) query += ` repos:>=${minRepos}`;
+
+  const response = await githubApi.get(`/search/users?q=${encodeURIComponent(query)}`);
+  return response.data; // يحتوي على items: [] من المستخدمين
 }
